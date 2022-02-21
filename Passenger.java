@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class Passenger extends Flight {
@@ -33,7 +35,7 @@ public class Passenger extends Flight {
 
 	@Override
 	public String toString() {
-		return "Name: " + name + " " + surname + ", seat no.:" + seatNo + ". " + flight;
+		return name + " " + surname + ", seat no.:" + seatNo + ". " + flight;
 	}
 
 	public void sortByDestination(ArrayList<Passenger> passengers) {
@@ -124,9 +126,21 @@ public class Passenger extends Flight {
 	}
 
 	public void groupPassengersByDestination() {
-		// TODO Auto-generated method stub
+		
+		Map<String, List<Passenger>> groupByDestination = 			
+		getPassengers().stream().collect(Collectors.groupingBy(Passenger::getDestination));
+
+		groupByDestination.forEach((destination, passenger1) -> {System.out.println("Destination - " + destination + ", passengers: ");
+		int id = 1;
+		for (Passenger psg : passenger1) {
+			System.out.println(id + ". " + psg.name + " " + psg.surname);
+			id++;
+		}
+		});
+
 
 	}
+
 
 	public void passengersFlyingIn1Week() {
 

@@ -60,7 +60,7 @@ public class App {
 		System.out.println("---");
 		System.out.println("2.5. GROUP PASSENGERS BY DESTINATION.\n");
 
-		// passenger1.groupPassengersByDestination();
+		passenger1.groupPassengersByDestination();
 
 		System.out.println("---");
 		System.out.println("2.6. PASSENGERS WITH FLIGHT WITHIN 7 DAYS.\n");
